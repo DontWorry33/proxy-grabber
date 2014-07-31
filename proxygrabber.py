@@ -27,7 +27,9 @@ def grabIp(r = 0, s = 0):
         while r < s+1:
                 proxyInput = 'http://www.xroxy.com/proxylist.php?port=&type=Not_codeen&ssl=&country=&latency=&reliability=&sort=reliability&desc=true&pnum=%s#table' % (r)
                 print "Grabbing data from page: ", r
-                proxyRead = urllib2.urlopen(proxyInput)
+                userAgent = 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36'
+                requestData = urllib2.Request(proxyInput, headers={ 'User-Agent': userAgent })
+                proxyRead = urllib2.urlopen(requestData)
                 readIps = proxyRead.read()
                 ipAddress = re.findall(r'host=\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', readIps)
                 portNumber = re.findall(r'port=\d{1,5}', readIps)
