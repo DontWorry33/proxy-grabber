@@ -78,8 +78,8 @@ def checkIps(x):
                         loadProxy = urllib2.ProxyHandler(proxies)
                         proxyOpener = urllib2.build_opener(loadProxy)
                         installOpen = urllib2.install_opener(proxyOpener)
-                        filehandle = urllib2.urlopen(base64.decodestring('aHR0cDovL2F1dG9tYXRpb24ud2hhdGlzbXlpcC5jb20vbjA5MjMwOTQ1LmFzcA=='), timeout=timeOut)
-                        if filehandle.read()+':'+portList2[0] == ipPort:
+                        filehandle = urllib2.urlopen(base64.decodestring('aHR0cDovL2ljYW5oYXppcC5jb20v'), timeout=timeOut)
+                        if filehandle.read()[:-1]+':'+portList2[0] == ipPort:
                                 good+=1
                                 validIp.add(ipPort)
                                 win.redraw()
@@ -97,6 +97,7 @@ def checkIps(x):
                 except:
                         fl_message("Finished validating IP's. Please save to file to prevent data loss.")
                         break
+
 
 
 def savingFile(x):
