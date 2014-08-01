@@ -90,9 +90,12 @@ def checkIps(x):
                                 print "Failed to recieve data from: ", ipPort
                                 win.redraw()
                         ipLists.remove(1)
+                        portList2.remove(portList2[0])
                 except IOError:
+                        invalidIp.add(ipPort)
                         ipLists.remove(1)
                         print "Failed to recieve data from: ", ipPort
+                        portList2.remove(portList2[0])
                         pass
                 except:
                         fl_message("Finished validating IP's. Please save to file to prevent data loss.")
