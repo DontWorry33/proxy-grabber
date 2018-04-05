@@ -1,1 +1,5 @@
-Make sure you have pyFLTK installed (sudo apt-get install python-fltk)
+### Proxy-Grabber
+
+## Requirements:
+- pyFLTK
+  - `sudo apt-get install python-fltk`
